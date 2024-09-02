@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Influencers=require('../models/influencerModel')
+const Influencers=require('../../models/influencerModel')
 const bcrypt=require('bcryptjs')
 
 const influencerRegister=async(req,res)=>{

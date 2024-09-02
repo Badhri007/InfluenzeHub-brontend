@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Sponsors = require('../models/sponsorModel')
+const Sponsors = require('../../models/sponsorModel')
 const bcrypt = require('bcryptjs')
 
 

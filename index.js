@@ -1,5 +1,5 @@
 const express = require("express")
-const { Router } = require("./routes/influeRoutes")
+const { Router } = require("../server/routes/influeRoutes")
 
 const mongoose = require("mongoose");
 const cors = require("cors");
