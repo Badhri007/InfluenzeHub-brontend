@@ -10,4 +10,4 @@ const sponsorSchema=new mongoose.Schema(
 
 const Sponsors=new mongoose.model('Sponsors',sponsorSchema);
 
-module.exports=Sponsors
+module.exports={Sponsors}

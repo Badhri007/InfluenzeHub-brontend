@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 
 const campaignSchema=new mongoose.Schema({
     name:{type:String,required:true},
+    sponsorId:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Sponsor'
+    },
     description:{type:String,required:true},
     niche:{type:String,required:true},
     budget:{type:Number,required:true},
