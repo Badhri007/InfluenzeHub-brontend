@@ -22,4 +22,16 @@ const getAllCampaigns=async(req,res)=>{
     res.json(userCampaigns);
 }
 
-module.exports={getAllCampaigns}
+
+const getParticularCampaign=async(req,res)=>{
+    const campaignid = req.headers['campaignid'];
+    const currentCampaign=await Campaigns.find({_id:campaignid});
+    console.log("Current Campaign:",currentCampaign);
+    res.json(currentCampaign);
+}
+
+
+
+
+
+module.exports={getAllCampaigns,getParticularCampaign}
