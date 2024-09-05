@@ -7,8 +7,8 @@ const adRequestSchema=new mongoose.Schema({
         required: true,
         ref: 'Campaign'
     },
-    influencerId:{
-        type:mongoose.Schema.Types.ObjectId,
+    influencer_username:{
+        type:String,
         required:true,
         ref:'Influencer'
     },
