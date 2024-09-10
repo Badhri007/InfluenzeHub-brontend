@@ -32,6 +32,18 @@ const getParticularCampaign=async(req,res)=>{
 
 
 
+const getCampaignsCategoryWise=async(req,res)=>{
+    const category = req.headers['category'];
+    console.log("Bk:",category);
+
+    const filt_campaigns=await Campaigns.find({niche:category});
+    console.log("All Filtered Campaigns:",filt_campaigns);
+    res.json(filt_campaigns);
+
+}
 
 
-module.exports={getAllCampaigns,getParticularCampaign}
+
+
+
+module.exports={getAllCampaigns,getParticularCampaign,getCampaignsCategoryWise}
