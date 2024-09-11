@@ -33,7 +33,7 @@ const getParticularCampaign=async(req,res)=>{
 
 
 const getCampaignsCategoryWise=async(req,res)=>{
-    const category = req.headers['category'];
+    const {category,searchText} = req.body;
     console.log("Bk:",category);
 
     const filt_campaigns=await Campaigns.find({niche:category});

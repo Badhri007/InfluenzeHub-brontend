@@ -19,7 +19,7 @@ Router.post("/storeCampaign",storeCampaign);
 Router.get("/getAllCampaigns",getAllCampaigns)
 Router.get("/getParticularCampaign",getParticularCampaign)
 Router.get("/getAllInfluencers",getAllInfluencers)
-Router.get("/getCampaignsCategoryWise",getCampaignsCategoryWise)
+Router.post("/getCampaignsCategoryWise",getCampaignsCategoryWise)
 
 Router.post("/adRequestSave",adRequestSave)
 
