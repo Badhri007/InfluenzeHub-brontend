@@ -17,26 +17,50 @@ const updateCampaign = async (req, res) => {
         console.log("campaignFile:", campaignFile);
         console.log("imageUrl:", imageUrl);
 
-        const updatedCampaign = await Campaigns.findByIdAndUpdate(
-            _id, 
-            {
-                name: name,
-                sponsorId,
-                description,
-                niche,
-                budget,
-                visibility,
-                startDate,
-                endDate,
-                imageUrl
-            }, 
-            { new: true, runValidators: true } // `new: true` returns the updated document, `runValidators` ensures validation
-        );
+        // Define updatedCampaign outside the block to avoid scoping issues
+        let updatedCampaign;
 
+        // Check if the image URL is provided
+        if (imageUrl) {
+            updatedCampaign = await Campaigns.findByIdAndUpdate(
+                _id, 
+                {
+                    name,
+                    sponsorId,
+                    description,
+                    niche,
+                    budget,
+                    visibility,
+                    startDate,
+                    endDate,
+                    imageUrl // Include imageUrl when provided
+                }, 
+                { new: true, runValidators: true }
+            );
+        } else {
+            updatedCampaign = await Campaigns.findByIdAndUpdate(
+                _id, 
+                {
+                    name,
+                    sponsorId,
+                    description,
+                    niche,
+                    budget,
+                    visibility,
+                    startDate,
+                    endDate
+                    // No imageUrl in case it's undefined
+                }, 
+                { new: true, runValidators: true }
+            );
+        }
+
+        // Check if campaign was found and updated
         if (!updatedCampaign) {
             return res.status(404).json({ message: "Campaign not found" });
         }
 
+        // Return the updated campaign
         res.json(updatedCampaign);
         console.log("Campaign Updated in DB !!!");
 
