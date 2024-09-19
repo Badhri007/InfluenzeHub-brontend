@@ -6,7 +6,7 @@ const { sponsorRegister } = require('../controllers/sponsor/sponsorRegisterContr
 const { sponsorLogin } = require('../controllers/sponsor/sponsorLoginController');
 const { storeCampaign } = require('../controllers/sponsor/storeCampaignController');
 const { getAllCampaigns,getParticularCampaign,getCampaignsCategoryWise } = require('../controllers/sponsor/getAllCampaignsController');
-const {getAllInfluencers}=require('../controllers/influencer/getAllInfluencers')
+const {getAllInfluencers,getInfluencer}=require('../controllers/influencer/getAllInfluencers')
 const {adRequestSave}=require('../controllers/sponsor/adRequestSaveController')
 const {updateCampaign}=require('../controllers/sponsor/updateCampaignController')
 const {deleteCampaign} = require('../controllers/sponsor/deleteCampaignController')
@@ -23,6 +23,7 @@ Router.post("/storeCampaign",storeCampaign);
 Router.get("/getAllCampaigns",getAllCampaigns)
 Router.get("/getParticularCampaign",getParticularCampaign)
 Router.get("/getAllInfluencers",getAllInfluencers)
+Router.get("/getInfluencer",getInfluencer)
 Router.post("/getCampaignsCategoryWise",getCampaignsCategoryWise)
 
 Router.post("/adRequestSave",adRequestSave)

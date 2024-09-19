@@ -11,4 +11,19 @@ const getAllInfluencers=async(req,res)=>{
     }
 }
 
-module.exports={getAllInfluencers}
+const getInfluencer = async (req, res) => {
+    try {
+        const influencerId = req.headers["influencer_id"];
+        const influencer = await Influencers.findById(influencerId); // find by ID
+        if (!influencer) {
+            return res.status(404).json({ message: 'Influencer not found' });
+        }
+        res.json(influencer); // Send the found influencer as response
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Error fetching influencer', error: err });
+    }
+};
+
+
+module.exports={getAllInfluencers,getInfluencer};
