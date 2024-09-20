@@ -10,11 +10,13 @@ const {getAllInfluencers,getInfluencer}=require('../controllers/influencer/getAl
 const {adRequestSave}=require('../controllers/sponsor/adRequestSaveController')
 const {updateCampaign}=require('../controllers/sponsor/updateCampaignController')
 const {deleteCampaign} = require('../controllers/sponsor/deleteCampaignController')
-const {getAllAdRequests} = require('../controllers/sponsor/getAllAdRequestsController')
+const {getAllAdRequests} = require('../controllers/sponsor/getAllAdRequestsController');
+const { updateProfile } = require('../controllers/influencer/updateProfileController');
 
 
 Router.post("/influencerRegister",influencerRegister);
 Router.post("/influLogin",influencerLogin);
+Router.put("/updateProfile",updateProfile)
 
 Router.post("/sponsoRegister",sponsorRegister);
 Router.post("/sponsorLogin",sponsorLogin);
