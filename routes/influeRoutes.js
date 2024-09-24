@@ -13,6 +13,7 @@ const {deleteCampaign} = require('../controllers/sponsor/deleteCampaignControlle
 const {getAllAdRequests} = require('../controllers/sponsor/getAllAdRequestsController');
 const {getAllInfluAdRequests}=require('../controllers/influencer/getAllInfluAdRequests');
 const { updateProfile } = require('../controllers/influencer/updateProfileController');
+const { updateAd } = require('../controllers/influencer/updateAdRequest');
 
 
 Router.post("/influencerRegister",influencerRegister);
@@ -36,6 +37,8 @@ Router.delete("/deleteCampaign",deleteCampaign);
 
 Router.get("/getAllAdRequests",getAllAdRequests)
 Router.get("/getAllInfluAdRequests",getAllInfluAdRequests)
+
+Router.put("/updateAd",updateAd)
 
 
 
