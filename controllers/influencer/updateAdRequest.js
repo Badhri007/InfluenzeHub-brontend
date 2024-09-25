@@ -3,10 +3,10 @@ const {adRequest} = require("../../models/adModel");
 
 const updateAd = async (req, res) => {
   try {
-    const { ad_id, name, campaign_id, requirements, payment_amount, status, campaignName,sponsorName } = req.body;
+    const { ad_id, campaign_id,campaignName,influencer_username,name, payment_amount,  requirements ,sponsorName,status,_id } = req.body;
 
     let updatedAd = await adRequest.findOneAndUpdate(
-      { ad_id }, 
+      { _id }, 
       {
         name,
         requirements,
