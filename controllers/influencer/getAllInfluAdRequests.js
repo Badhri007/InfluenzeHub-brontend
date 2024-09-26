@@ -24,6 +24,9 @@ const getAllInfluAdRequests = async (req, res) => {
       allAdRequests.map(async (adrequest) => {
         try {
           const campaign = await Campaigns.findOne({ _id: adrequest.campaignId });
+          const campaign_startDate = campaign.startDate;
+          const campaign_endDate = campaign.endDate;
+
           const campaign_name = campaign ? campaign.name : 'Unknown Campaign';
           const sponsor = campaign ? await Sponsors.findOne({ _id: campaign.sponsorId }) : null;
           const sponsor_name = sponsor ? sponsor.username : 'Unknown Sponsor';
@@ -32,6 +35,8 @@ const getAllInfluAdRequests = async (req, res) => {
             ...adrequest._doc,
             campaignName: campaign_name,
             sponsorName: sponsor_name,
+            campaign_startDate:campaign_startDate,
+            campaign_endDate:campaign_endDate,
             ad_id: adrequest._id
           };
         } catch (err) {
@@ -40,6 +45,8 @@ const getAllInfluAdRequests = async (req, res) => {
             ...adrequest._doc,
             campaignName: 'Unknown Campaign',
             sponsorName: 'Unknown Sponsor',
+            campaign_startDate:'Unknown',
+            campaign_endDate:'Unknown',
           };
         }
       })
