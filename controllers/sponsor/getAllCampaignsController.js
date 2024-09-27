@@ -23,7 +23,9 @@ const getAllCampaigns=async(req,res)=>{
 
 
 const getParticularCampaign=async(req,res)=>{
+    
     const campaignid = req.headers['campaignid'];
+    console.log("Campaign_id:",campaignid)
     const currentCampaign=await Campaigns.find({_id:campaignid});
     console.log("Current Campaign:",currentCampaign);
     res.json(currentCampaign);
