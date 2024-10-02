@@ -26,4 +26,14 @@ const getInfluencer = async (req, res) => {
 };
 
 
-module.exports={getAllInfluencers,getInfluencer};
+const getInfluencersCategoryWise=async(req,res)=>{
+    const {category,searchText} = req.body;
+    console.log("Bk:",category);
+
+    const filt_influencers=await Influencers.find({niche:category});
+    console.log("All Filtered Influencers:",filt_influencers);
+    res.json(filt_influencers);
+
+}
+
+module.exports={getAllInfluencers,getInfluencer,getInfluencersCategoryWise};
