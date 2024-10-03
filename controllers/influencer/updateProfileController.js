@@ -3,7 +3,7 @@ const Influencers = require("../../models/influencerModel");
 
 const updateProfile = async (req, res) => {
   try {
-    const { username, gender, niche, email, platform, reach, profile_photo_url } = req.body;
+    const { username, gender, niche, email, platform, reach, profile_photo_url,social_media_url } = req.body;
 
     let updatedProfile = await Influencers.findOneAndUpdate(
       { email }, 
@@ -15,6 +15,8 @@ const updateProfile = async (req, res) => {
         platform,
         reach,
         profile_photo_url,
+        social_media_url
+
       },
       { new: true, runValidators: true } 
     );

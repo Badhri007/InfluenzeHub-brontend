@@ -9,7 +9,8 @@ const influencerSchema=new mongoose.Schema(
         email:{type:String,required:true,unique:true},
         password:{type:String,required:true},
         platform:{type:String,required:true},
-        profile_photo_url:{type:String}
+        profile_photo_url:{type:String},
+        social_media_url:{type:String,required:true}
     }
 )
 
