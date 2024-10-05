@@ -26,14 +26,34 @@ const getInfluencer = async (req, res) => {
 };
 
 
-const getInfluencersCategoryWise=async(req,res)=>{
-    const {category,searchText} = req.body;
-    console.log("Bk:",category);
+const getInfluencersCategoryWise = async (req, res) => {
+    const { category, searchText } = req.body;
+    console.log("Bk:", category);
+  
+    let filt_influencers = [];
+  
+    try {
+      if (category) {
+        // Filter by category
+        filt_influencers = await Influencers.find({ niche: category });
+      } else if (searchText) {
+        // Filter by username using regex for case-insensitive partial matches
+        filt_influencers = await Influencers.find({
+          username: { $regex: searchText, $options: 'i' },
+        });
+      } else {
+        // If no filters are provided, return all influencers
+        filt_influencers = await Influencers.find();
+      }
+  
+      console.log("All Filtered Influencers:", filt_influencers);
+      res.status(200).json(filt_influencers);
+    } catch (err) {
+      console.error("Error fetching influencers:", err);
+      res.status(500).json({ message: 'Error fetching influencers', error: err });
+    }
+  };
+  
 
-    const filt_influencers=await Influencers.find({niche:category});
-    console.log("All Filtered Influencers:",filt_influencers);
-    res.json(filt_influencers);
-
-}
 
 module.exports={getAllInfluencers,getInfluencer,getInfluencersCategoryWise};
