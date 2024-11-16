@@ -26,7 +26,6 @@ mongoose.connect("mongodb://0.0.0.0:27017/Creato-Sponso")
         console.log("Mongo DB Connection Error:", err);
     });
 
-
 app.listen(5000, () => {
     console.log("Server started on port 5000..");
 })
