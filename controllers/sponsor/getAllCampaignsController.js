@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const {Campaigns}=require('../../models/campaignModel')
 
-const getAllCampaigns=async(req,res)=>{
+const getAllCampaignsSponsorWise=async(req,res)=>{
     const sponsorId = req.headers['sponsorid'];
     console.log("Sponsor ID:", sponsorId);
 
@@ -75,4 +75,4 @@ const getCampaignsCategoryWise = async (req, res) => {
 
 
 
-module.exports={getAllCampaigns,getParticularCampaign,getCampaignsCategoryWise}
+module.exports={getAllCampaignsSponsorWise,getParticularCampaign,getCampaignsCategoryWise}

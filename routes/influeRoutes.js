@@ -5,7 +5,7 @@ const { influencerLogin } = require('../controllers/influencer/influencerLoginCo
 const { sponsorRegister } = require('../controllers/sponsor/sponsorRegisterController');
 const { sponsorLogin } = require('../controllers/sponsor/sponsorLoginController');
 const { storeCampaign } = require('../controllers/sponsor/storeCampaignController');
-const { getAllCampaigns,getParticularCampaign,getCampaignsCategoryWise } = require('../controllers/sponsor/getAllCampaignsController');
+const { getAllCampaignsSponsorWise,getParticularCampaign,getCampaignsCategoryWise } = require('../controllers/sponsor/getAllCampaignsController');
 const {getAllInfluencers,getInfluencer, getInfluencersCategoryWise}=require('../controllers/influencer/getAllInfluencers')
 const {adRequestSave}=require('../controllers/sponsor/adRequestSaveController')
 const {updateCampaign}=require('../controllers/sponsor/updateCampaignController')
@@ -14,7 +14,11 @@ const {getAllAdRequests} = require('../controllers/sponsor/getAllAdRequestsContr
 const {getAllInfluAdRequests,getAllPublicInfluAdRequests}=require('../controllers/influencer/getAllInfluAdRequests');
 const { updateProfile } = require('../controllers/influencer/updateProfileController');
 const { updateAd } = require('../controllers/influencer/updateAdRequest');
+const { getAllCampaigns } = require('../controllers/influencer/getCampaignsController')
+const { getSponsorById } = require('../controllers/sponsor/sponsorDetails');
+const { adRequestSaveFromInfluencer } = require('../controllers/influencer/saveSponsorAdRequests');
 
+ 
 
 Router.post("/influencerRegister",influencerRegister);
 Router.post("/influLogin",influencerLogin);
@@ -24,19 +28,23 @@ Router.post("/sponsoRegister",sponsorRegister);
 Router.post("/sponsorLogin",sponsorLogin);
 
 Router.post("/storeCampaign",storeCampaign);
-Router.get("/getAllCampaigns",getAllCampaigns)
+Router.get("/getAllCampaignsSponsorWise",getAllCampaignsSponsorWise)
 Router.get("/getParticularCampaign",getParticularCampaign)
 Router.get("/getAllInfluencers",getAllInfluencers)
 Router.get("/getInfluencer",getInfluencer)
 Router.post("/getCampaignsCategoryWise",getCampaignsCategoryWise)
 
 Router.post("/adRequestSave",adRequestSave)
+
+Router.post("/adRequestSaveFromInfluencer",adRequestSaveFromInfluencer)
 Router.put("/updateCampaign", updateCampaign);
 Router.delete("/deleteCampaign",deleteCampaign);
 
 
 Router.get("/getAllAdRequests",getAllAdRequests)
 Router.get("/getAllInfluAdRequests",getAllInfluAdRequests)
+Router.get("/getAllCampaigns",getAllCampaigns);
+Router.get("/getSponsorById",getSponsorById)
 Router.get("/getAllPublicInfluAdRequests",getAllPublicInfluAdRequests);
 Router.post("/getInfluencersCategoryWise",getInfluencersCategoryWise)
 
