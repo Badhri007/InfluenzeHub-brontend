@@ -23,7 +23,7 @@ const getAllCampaignsSponsorWise=async(req,res)=>{
 
 
 const getParticularCampaign=async(req,res)=>{
-    
+
     const campaignid = req.headers['campaignid'];
     console.log("Campaign_id:",campaignid)
     const currentCampaign=await Campaigns.find({_id:campaignid});
@@ -33,22 +33,14 @@ const getParticularCampaign=async(req,res)=>{
 
 
 
-// const getCampaignsCategoryWise=async(req,res)=>{
-//     const {category,searchText} = req.body;
-//     console.log("Bk:",category);
 
-//     const filt_campaigns=await Campaigns.find({niche:category});
-//     console.log("All Filtered Campaigns:",filt_campaigns);
-//     res.json(filt_campaigns);
-
-// }
 
 const getCampaignsCategoryWise = async (req, res) => {
     const { category, searchText } = req.body;
     console.log("Bk:", category);
-  
+
     let filt_campaigns = [];
-  
+
     try {
       if (category) {
         // Filter by category
@@ -62,7 +54,7 @@ const getCampaignsCategoryWise = async (req, res) => {
         // If no filters are provided, return all campaigns
         filt_campaigns = await Campaigns.find();
       }
-  
+
       console.log("All Filtered Campaigns:", filt_campaigns);
       res.status(200).json(filt_campaigns);
     } catch (err) {
@@ -70,7 +62,7 @@ const getCampaignsCategoryWise = async (req, res) => {
       res.status(500).json({ message: 'Error fetching campaigns', error: err });
     }
   };
-  
+
 
 
 
