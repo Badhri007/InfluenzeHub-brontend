@@ -17,6 +17,7 @@ const { updateAd } = require('../controllers/influencer/updateAdRequest');
 const { getAllCampaigns } = require('../controllers/influencer/getCampaignsController')
 const { getSponsorById } = require('../controllers/sponsor/sponsorDetails');
 const { adRequestSaveFromInfluencer } = require('../controllers/influencer/saveSponsorAdRequests');
+const {getAllAdRequestsFromInfluencers} = require('../controllers/sponsor/getAdRequestsFromInfluencers')
 
 
 
@@ -52,6 +53,8 @@ Router.get("/getInfluencerIdFromUsername",getInfluencerIdFromUsername)
 
 Router.put("/updateAd",updateAd)
 
+
+Router.get("/getAllAdRequestsFromInfluencers",getAllAdRequestsFromInfluencers)
 
 
 
